@@ -6,7 +6,9 @@
 
 package calc;
 
+import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.*;
@@ -20,6 +22,8 @@ import java.io.IOException;
 public class Image 
 {
     public static BufferedImage obraz;
+    public static BufferedImage obrazG;
+    public static BufferedImage obrazO;
      public static void main(String[] args) throws IOException 
      {
    //      loadImage("test.bmp");
@@ -35,5 +39,15 @@ public class Image
         }
         catch(IOException IOEx){return false;}
     }
+   static BufferedImage toGray(BufferedImage ob)
+   {
+           ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_GRAY);
+    ColorConvertOp op = new ColorConvertOp(cs, null);
+
+  //  BufferedImage bufferedImage = new BufferedImage(200, 200,
+    //    BufferedImage.TYPE_BYTE_INDEXED);
+    obrazG = op.filter(ob, null);
+       return null;
+   }
 }    
 

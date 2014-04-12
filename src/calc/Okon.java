@@ -86,6 +86,11 @@ public class Okon extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButtonMenuItem2);
         jRadioButtonMenuItem2.setText("Odcienie szarości");
         jRadioButtonMenuItem2.setEnabled(false);
+        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jRadioButtonMenuItem2);
 
         buttonGroup1.add(jRadioButtonMenuItem3);
@@ -130,8 +135,6 @@ public class Okon extends javax.swing.JFrame {
             jMenuItem2.setEnabled(true);
             Image.loadImage(fc.getSelectedFile());
             jLabel1.setIcon(new ImageIcon(Image.obraz));
-            //JLabel jLabel1 =new JLabel(new ImageIcon(Image.obraz));// new JLabel(new ImageIcon(Image.obraz));
-            //Component add = add(jLabel1);
         }
         
 
@@ -142,8 +145,15 @@ public class Okon extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Image.toGray(Image.obraz);
         
-
+        
+        
+        
+        
+        jRadioButtonMenuItem2.setEnabled(true);
+        jRadioButtonMenuItem3.setEnabled(true);
+        jCheckBoxMenuItem1.setEnabled(true);
 
 //Aktywacja transformacji
         // TODO add your handling code here:
@@ -155,6 +165,11 @@ public class Okon extends javax.swing.JFrame {
         
     // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+
+    private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
+    jLabel1.setIcon(new ImageIcon(Image.obrazG));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
