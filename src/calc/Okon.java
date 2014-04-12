@@ -141,7 +141,8 @@ public class Okon extends javax.swing.JFrame {
 
 
         //Wybor pliku przez FileChoosera
-        // TODO add your handling code here:
+        // TODO add your handling code here://Wykonane brakuje tutaj wszelakich wyjątków, ograniczenia wyboru do
+        //plików graficznych i tym podobnych pierdół.
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -151,21 +152,20 @@ public class Okon extends javax.swing.JFrame {
         jRadioButtonMenuItem2.setEnabled(true);
         jRadioButtonMenuItem3.setEnabled(true);
         jCheckBoxMenuItem1.setEnabled(true);
-
 //Aktywacja transformacji
-        // TODO add your handling code here:
+        // TODO add your handling code here: //Wykonana jest tylko transformacja do odcieni szarosci, brak Otsu i klasteryzacji
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
         jLabel1.setIcon(new ImageIcon(Image.obraz));
         
         
-    // TODO add your handling code here:
+    // TODO add your handling code here://Done
     }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
 
     private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
     jLabel1.setIcon(new ImageIcon(Image.obrazG));
-        // TODO add your handling code here:
+        // TODO add your handling code here://Done
     }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
 
     /**
