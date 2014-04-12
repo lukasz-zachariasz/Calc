@@ -7,6 +7,7 @@
 package calc;
 
 import java.awt.Component;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -60,6 +61,7 @@ public class Okon extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Transformuj");
+        jMenuItem2.setEnabled(false);
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -74,6 +76,11 @@ public class Okon extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButtonMenuItem1);
         jRadioButtonMenuItem1.setText("Orginał");
         jRadioButtonMenuItem1.setEnabled(false);
+        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jRadioButtonMenuItem1);
 
         buttonGroup1.add(jRadioButtonMenuItem2);
@@ -118,7 +125,10 @@ public class Okon extends javax.swing.JFrame {
         JFileChooser fc= new JFileChooser();
         if(fc.showOpenDialog(null)==JFileChooser.APPROVE_OPTION)
         {
-            boolean loadImage = Image.loadImage(fc.getSelectedFile());
+            jRadioButtonMenuItem1.setEnabled(true);
+            jRadioButtonMenuItem1.setSelected(true);
+            jMenuItem2.setEnabled(true);
+            Image.loadImage(fc.getSelectedFile());
             jLabel1.setIcon(new ImageIcon(Image.obraz));
             //JLabel jLabel1 =new JLabel(new ImageIcon(Image.obraz));// new JLabel(new ImageIcon(Image.obraz));
             //Component add = add(jLabel1);
@@ -138,6 +148,13 @@ public class Okon extends javax.swing.JFrame {
 //Aktywacja transformacji
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+        jLabel1.setIcon(new ImageIcon(Image.obraz));
+        
+        
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
