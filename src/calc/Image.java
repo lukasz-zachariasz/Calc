@@ -24,10 +24,6 @@ public class Image
     public static BufferedImage obraz;
     public static BufferedImage obrazG;
     public static BufferedImage obrazO;
-     public static void main(String[] args) throws IOException 
-     {
-   //      loadImage("test.bmp");
-     }
      
    static boolean loadImage(File file)
     {
@@ -41,13 +37,10 @@ public class Image
     }
    static BufferedImage toGray(BufferedImage ob)
    {
-           ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_GRAY);
-    ColorConvertOp op = new ColorConvertOp(cs, null);
-
-  //  BufferedImage bufferedImage = new BufferedImage(200, 200,
-    //    BufferedImage.TYPE_BYTE_INDEXED);
-    obrazG = op.filter(ob, null);
-       return null;
+            ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_GRAY);
+            ColorConvertOp op = new ColorConvertOp(cs, null);
+            obrazG = op.filter(ob, null);
+            return null;
    }
 }    
 

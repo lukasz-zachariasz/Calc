@@ -148,9 +148,6 @@ public class Okon extends javax.swing.JFrame {
         Image.toGray(Image.obraz);
         
         
-        
-        
-        
         jRadioButtonMenuItem2.setEnabled(true);
         jRadioButtonMenuItem3.setEnabled(true);
         jCheckBoxMenuItem1.setEnabled(true);
