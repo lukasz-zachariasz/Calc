@@ -50,7 +50,7 @@ public class Okon extends javax.swing.JFrame {
 
         jLabel1.setLabelFor(jLabel1);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Plik");
 
         jMenuItem1.setText("Wybierz plik");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class Okon extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Obraz");
 
         buttonGroup1.add(jRadioButtonMenuItem1);
         jRadioButtonMenuItem1.setText("Orginał");
@@ -96,6 +96,11 @@ public class Okon extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButtonMenuItem3);
         jRadioButtonMenuItem3.setText("Binarnie");
         jRadioButtonMenuItem3.setEnabled(false);
+        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jRadioButtonMenuItem3);
 
         jCheckBoxMenuItem1.setText("Klastry");
@@ -147,6 +152,10 @@ public class Okon extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         Image.toGray(Image.obraz);
+        Image.histogram(Image.obraz);
+        Image.histogramOfGreyscale(Image.obrazG);
+        Image.otsuTreshold(Image.obrazG);
+        Image.toBinary(Image.obrazG);
         
         
         jRadioButtonMenuItem2.setEnabled(true);
@@ -167,6 +176,11 @@ public class Okon extends javax.swing.JFrame {
     jLabel1.setIcon(new ImageIcon(Image.obrazG));
         // TODO add your handling code here://Done
     }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
+
+    private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
+    jLabel1.setIcon(new ImageIcon(Image.obrazO));   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
