@@ -185,7 +185,7 @@ public class Image
         int ne;
  
         int threshold = otsuTreshold(original);
- 
+       
         obrazO = new BufferedImage(width, height, original.getType());
  
         for(int i=0; i<original.getWidth(); i++) 
@@ -202,7 +202,7 @@ public class Image
                 {
                     ne = 0;
                 }
-                ne = (((((alpha*256)+ne)*256)+ne)*256)+ne;
+                ne = (((((alpha<<8)+ne)<<8)+ne)<<8)+ne;
                 obrazO.setRGB(i, j, ne); 
  
             }
