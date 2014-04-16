@@ -24,20 +24,21 @@ public class Image
     public static BufferedImage obraz;
     public static BufferedImage obrazG;
     public static BufferedImage obrazO;
-    static short[] rHist=new short[256];
-    static short[] bHist=new short[256];
-    static short[] gHist=new short[256];
+    static int[] rHist=new int[256];
+    static int[] bHist=new int[256];
+    static int[] gHist=new int[256];
     static int alpha;
     static int red;
     static int blue;
     static int green;
     static int newPixel;
-    static short[] greyHist=new short[256];
+    static int[] greyHist=new int[256];
     static int height;
     static int width;
     static int type;
     static long t1;
     static long t2;
+    
     
    static boolean loadImage(File file)
     {
@@ -82,7 +83,6 @@ static void greyMastah()
             
  	    for(int i=0; i<width; i++) 
             {
-               if(i%100==0) System.gc();
 	        for(int j=0; j<height; j++) 
                 {
                     getPix(i,j,obraz);
@@ -93,7 +93,6 @@ static void greyMastah()
                     newPixel = avgLUT[newPixel];                                //newPixel=kolor szarosci   
                     greyHist[newPixel]++;                                       //hisogram dla szarosci
                     fillPix(colorToRGB(newPixel,newPixel,newPixel),obrazG,i,j);
-                    
                 }
             }
             System.gc();
@@ -132,7 +131,6 @@ static void greyMastah()
  
         for(int i=0; i<width; i++) 
         {
-            if(i%100==0) System.gc();
             for(int j=0; j<height; j++) 
             {
                 red = new Color(original.getRGB(i, j)).getRed();
@@ -146,7 +144,6 @@ static void greyMastah()
                 }
                 ne = (((((alpha<<8)+ne)<<8)+ne)<<8)+ne;
                 obrazO.setRGB(i, j, ne); 
-                
  
             }
         }

@@ -6,11 +6,11 @@
 
 package calc;
 
-import java.awt.Component;
-import javax.swing.ButtonModel;
+//import java.awt.Component;
+//import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
+//import javax.swing.JLabel;
 
 /**
  *
@@ -151,11 +151,15 @@ public class Okon extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Image.toGray(Image.obraz);
-        Image.histogram(Image.obraz);
-        Image.histogramOfGreyscale(Image.obrazG);
-        Image.otsuTreshold(Image.obrazG);
+        Image.createImages();
+        Image.greyMastah();
+        //ImageEx.otsuTreshold();
         Image.toBinary(Image.obrazG);
+        //Image.toGray(Image.obraz);
+        //Image.histogram(Image.obraz);
+        //Image.histogramOfGreyscale(Image.obrazG);
+        //Image.otsuTreshold(Image.obrazG);
+        //Image.toBinary(Image.obrazG);
         
         
         jRadioButtonMenuItem2.setEnabled(true);
