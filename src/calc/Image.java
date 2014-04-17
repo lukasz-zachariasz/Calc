@@ -62,7 +62,7 @@ public class Image
         }
       static void createImages()
         {
-            t1=System.nanoTime();
+            //t1=System.nanoTime();
           obrazG = new BufferedImage(width, height, type);
           obrazO = new BufferedImage(width, height, type);
         }
@@ -82,7 +82,7 @@ static void greyMastah()
             
  	    for(int i=0; i<width; i++) 
             {
-               if(i%100==0) System.gc();
+               //if(i%100==0) System.gc(); //tym modyfikujemy czas/zuzycie ramu
 	        for(int j=0; j<height; j++) 
                 {
                     getPix(i,j,obraz);
@@ -132,7 +132,7 @@ static void greyMastah()
  
         for(int i=0; i<width; i++) 
         {
-            if(i%100==0) System.gc();
+            //if(i%100==0) System.gc(); //tym modyfikujemy czas/zuzycie ramu
             for(int j=0; j<height; j++) 
             {
                 red = new Color(original.getRGB(i, j)).getRed();
@@ -150,8 +150,8 @@ static void greyMastah()
  
             }
         }
-        t2=System.nanoTime();
-        System.out.println(t2-t1);
+        //t2=System.nanoTime();
+        //System.out.println(t2-t1);
         System.gc();
         return obrazO;
  
