@@ -173,20 +173,13 @@ static void greyMastah()
                     if(red==0)
                     {
                         klas = check(i,j);
-      //                  if(klas==null)
-       //                 {   
-        //                    Klaster add= new Klaster(i,j);
-         //                   add.lista.add(new Pixel(i,j));
-          //                  lista.add(add);
-                            //return true;
-         //               }
                         if(klas==null)
                         {
-                            a=i-2;
-                            b=j-2;
-                            for(; a<width&&a<i+2; a++) 
+                            a=i-1;
+                            b=j-1;
+                            for(; a<width&&a<i+1; a++) 
                                 {
-                                for(; b<height&&b<j+2; b++) 
+                                for(; b<height&&b<j+1; b++) 
                                     {
                                         if(red==0&&a!=i&&b!=j)
                                         {
@@ -201,7 +194,7 @@ static void greyMastah()
                                             {
                                                 chck.lista.add(new Pixel(a,b));
                                             }
-                                            
+                                            return true;
                                         }
                                     }
                                 }
