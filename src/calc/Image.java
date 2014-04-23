@@ -13,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -38,6 +40,7 @@ public class Image
     static int type;
     static long t1;
     static long t2;
+    static List<Klaster> lista = new ArrayList<Klaster>();
     
    static boolean loadImage(File file)
     {
@@ -155,6 +158,75 @@ static void greyMastah()
         System.gc();
         return obrazO;
  
+        }
+        static boolean klastryzacja(BufferedImage img)
+        {
+            Klaster klas=null;
+            Klaster chck;
+            int a;
+            int b;
+            for(int i=0; i<width; i++) 
+            {
+                for(int j=0; j<height; j++) 
+                {
+                    getPix(i,j, img);
+                    if(red==0)
+                    {
+                        klas = check(i,j);
+      //                  if(klas==null)
+       //                 {   
+        //                    Klaster add= new Klaster(i,j);
+         //                   add.lista.add(new Pixel(i,j));
+          //                  lista.add(add);
+                            //return true;
+         //               }
+                        if(klas==null)
+                        {
+                            a=i-5;
+                            b=j-5;
+                            for(; a<width&&a<i+5; a++) 
+                                {
+                                for(; b<height&&b<j+5; b++) 
+                                    {
+                                        if(red==0)
+                                        {
+                                            chck = check(a,b);
+                                            if(chck==null)
+                                            {
+                                                 Klaster add= new Klaster(i,j);
+                                                 add.lista.add(new Pixel(i,j));
+                                                 lista.add(add);                                                
+                                            }
+                                            else
+                                            {
+                                                chck.lista.add(new Pixel(a,b));
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                        }
+                    }
+                }
+                
+            }
+            for(Klaster k:lista)
+            {
+                k.toImage();
+            }
+            return false;
+        }
+        static Klaster check(int i,int j)
+        {
+            if(lista.isEmpty()==true)return null;
+            for(Klaster k:lista)
+            {
+                for(Pixel p:k.lista)
+                {
+                    if(p.x==i&&p.y==j)return k;
+                }
+            }
+        return null;
         }
    
 }    

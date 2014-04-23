@@ -36,6 +36,7 @@ public class Okon extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -49,6 +50,13 @@ public class Okon extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setLabelFor(jLabel1);
+
+        jButton1.setText("Next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Plik");
 
@@ -116,16 +124,20 @@ public class Okon extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(0, 753, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,6 +172,7 @@ public class Okon extends javax.swing.JFrame {
         //Image.histogramOfGreyscale(Image.obrazG);
         //Image.otsuTreshold(Image.obrazG);
         //Image.toBinary(Image.obrazG);
+        Image.klastryzacja(Image.obrazO);
         
         
         jRadioButtonMenuItem2.setEnabled(true);
@@ -178,13 +191,30 @@ public class Okon extends javax.swing.JFrame {
 
     private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
     jLabel1.setIcon(new ImageIcon(Image.obrazG));
+    
         // TODO add your handling code here://Done
     }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
 
     private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
-    jLabel1.setIcon(new ImageIcon(Image.obrazO));   
+    jLabel1.setIcon(new ImageIcon(Image.obrazO));
+    if(jCheckBoxMenuItem1.isSelected()==true)
+    {
+        jLabel1.setIcon(new ImageIcon(Image.lista.get(i).img));
+    }
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+if(i<Image.lista.size())
+{
+    i++;
+}
+else
+{
+    i=0;
+}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,6 +253,7 @@ public class Okon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
@@ -234,4 +265,5 @@ public class Okon extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     // End of variables declaration//GEN-END:variables
+    static int i=0;
 }
