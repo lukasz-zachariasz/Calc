@@ -26,9 +26,11 @@ public class Klaster {
         x=a;
         y=b;
         lista=new ArrayList<Pixel>();
+        img=toImage();
     }
-    static void toImage()
+    static BufferedImage toImage()
     {
+        BufferedImage im;
         int maxi=1;
         int maxy=1;
         for(Pixel p:lista)
@@ -38,18 +40,19 @@ public class Klaster {
             if(a>maxi)maxi=a;
             if(b>maxy)maxy=b;
         }
-        img = new BufferedImage(maxi,maxy,TYPE_BYTE_BINARY);
+        im = new BufferedImage(maxi,maxy,TYPE_BYTE_BINARY);
         for(int i=0; i<maxi; i++) 
             {
                 for(int j=0; j<maxy; j++)
                 {
-                img.setRGB(i, j, colorToRGB(255,255,255));
+                im.setRGB(i, j, colorToRGB(255,255,255));
                 }
             }
         for(Pixel p:lista)
         {
-            img.setRGB(p.x-x, p.y-y, 0);
+            im.setRGB(p.x-x, p.y-y, 0);
         }
+        return im;
     }
     
 }

@@ -177,6 +177,7 @@ static void greyMastah()
                         {
                             a=i-1;
                             b=j-1;
+                            lo:
                             for(; a<width&&a<i+1; a++) 
                                 {
                                 for(; b<height&&b<j+1; b++) 
@@ -194,7 +195,7 @@ static void greyMastah()
                                             {
                                                 chck.lista.add(new Pixel(a,b));
                                             }
-                                            return true;
+                                           break lo;
                                         }
                                     }
                                 }
