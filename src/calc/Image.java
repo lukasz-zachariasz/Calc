@@ -80,6 +80,10 @@ public class Image
    }
 static void greyMastah()
 {
+	rHist=new short[256];
+    bHist=new short[256];
+    gHist=new short[256];
+    greyHist=new short[256];
     	    int[] avgLUT = new int[766];
 	    for(int i=0; i<avgLUT.length; i++) avgLUT[i] = (int) (i / 3);
             
