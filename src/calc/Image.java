@@ -182,13 +182,13 @@ static void greyMastah()
          //               }
                         if(klas==null)
                         {
-                            a=i-5;
-                            b=j-5;
-                            for(; a<width&&a<i+5; a++) 
+                            a=i-2;
+                            b=j-2;
+                            for(; a<width&&a<i+2; a++) 
                                 {
-                                for(; b<height&&b<j+5; b++) 
+                                for(; b<height&&b<j+2; b++) 
                                     {
-                                        if(red==0)
+                                        if(red==0&&a!=i&&b!=j)
                                         {
                                             chck = check(a,b);
                                             if(chck==null)
